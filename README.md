@@ -1,1 +1,1 @@
-# vuejs-animations-tests
+# vuejs-exercise-modules-for-beginners 
