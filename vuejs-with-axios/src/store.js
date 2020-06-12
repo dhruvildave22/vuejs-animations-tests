@@ -54,6 +54,7 @@ export default new Vuex.Store({
           localStorage.setItem('expirationDate', expirationDate)
           dispatch('storeUser', authData)
           dispatch('setLogoutTimer', res.data.expiresIn)
+          router.replace('/signin')
         })
         .catch(error => console.log(error))
     },
@@ -73,10 +74,12 @@ export default new Vuex.Store({
           localStorage.setItem('token', res.data.idToken)
           localStorage.setItem('userId', res.data.localId)
           localStorage.setItem('expirationDate', expirationDate)
+
           commit('authUser', {
             token: res.data.idToken,
             userId: res.data.localId
           })
+          router.push('/dashboard')
           dispatch('setLogoutTimer', res.data.expiresIn)
         })
         .catch(error => console.log(error))
